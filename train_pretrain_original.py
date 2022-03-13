@@ -43,7 +43,6 @@ except:
 # -
 
 model = utils.get_model(args.net, pretrain = args.pretrain)
-model.fc = nn.Linear(512, 100)
 model = model.cuda()
 
 # +

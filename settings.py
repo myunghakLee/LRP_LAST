@@ -13,8 +13,8 @@ CIFAR100_TRAIN_STD = (0.2673342858792401, 0.2564384629170883, 0.2761504713256840
 CHECKPOINT_PATH = 'log'
 
 #total training epoches
-EPOCH = 200
-MILESTONES = [30, 60, 80]
+EPOCH = 120
+MILESTONES = [25, 60, 80]
 
 DATE_FORMAT = '%A_%d_%B_%Y_%Hh_%Mm_%Ss'
 #time of we run the script

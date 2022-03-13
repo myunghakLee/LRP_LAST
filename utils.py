@@ -24,55 +24,69 @@ import torchvision.models as models
 def get_model(model_name, pretrain=True):
     if model_name == "resnet18":
         model = models.resnet18(pretrained=pretrain)
-        
+        model.fc = nn.Linear(512, 100)
     elif model_name == "resnet34":
         model = models.resnet34(pretrained=pretrain)
-        
+        model.fc = nn.Linear(512, 100)
     elif model_name == "resnet50":
         model = models.resnet50(pretrained=pretrain)
-        
+        model.fc = nn.Linear(2048, 100)
+
     elif model_name == "resnet101":
         model = models.resnet101(pretrained=pretrain)
+        model.fc = nn.Linear(2048, 100)
 
     elif model_name == "resnet152":
+        model.fc = nn.Linear(2048, 100)
         model = models.resnet152(pretrained=pretrain)
         
     elif model_name == "alexnet":
         model = models.alexnet(pretrained=pretrain)
-        
+        model.classifier[6] = nn.Linear(4096, 100)
+
     elif model_name == "squeezenet":
         model = models.squeezenet1_0(pretrained=pretrain)
-        
+        model.classifier[1] = nn.Conv2d(512, 100, kernel_size=(1,1))
+
     elif model_name == "vgg16":
         model = models.vgg16(pretrained=pretrain)
-        
+        model.classifier[6] = nn.Linear(4096, 100)
+
     elif model_name == "densenet161":
         model = models.densenet161(pretrained=pretrain)
+        model.classifier = nn.Linear(2208, 100)
         
     elif model_name == "inception_v3":
         model = models.inception_v3(pretrained=pretrain)
         
     elif model_name == "googlenet":
         model = models.googlenet(pretrained=pretrain)
-        
+        model.fc = nn.Linear(1024, 100)
+
     elif model_name == "shufflenet_v2_x1_0":
         model = models.shufflenet_v2_x1_0(pretrained=pretrain)
-        
+        model.fc = nn.Linear(1024, 100)
+
     elif model_name == "mobilenet_v2":
         model = models.mobilenet_v2(pretrained=pretrain)
-        
+        model.classifier[1] = nn.Linear(1280, 100)
+
     elif model_name == "mobilenet_v3_large":
         model = models.mobilenet_v3_large(pretrained=pretrain)
-        
+        model.classifier[3] = nn.Linear(1280, 100)
+
     elif model_name == "mobilenet_v3_small":
         model = models.mobilenet_v3_small(pretrained=pretrain)
+        model.classifier[3] = nn.Linear(1024, 100)
         
     elif model_name == "resnext50_32x4d":
         model = models.resnext50_32x4d(pretrained=pretrain)
-        
+        model.fc= nn.Linear(2048, 100)
+
     elif model_name == "wide_resnet50_2":
         model = models.wide_resnet50_2(pretrained=pretrain)
-        
+        model.fc= nn.Linear(2048, 100)
+
     elif model_name == "mnasnet1_0":
         model = models.mnasnet1_0(pretrained=pretrain)
         
