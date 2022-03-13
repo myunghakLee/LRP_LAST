@@ -64,9 +64,21 @@ def get_model(model_name, pretrain=True):
         model = models.vgg16(pretrained=pretrain)
         model.classifier[6]= nn.Linear(4096, 100)
 
+    elif model_name == "densenet121":
+        model = models.densenet121(pretrained=pretrain)
+        model.classifier = nn.Linear(1024, 100)
+
     elif model_name == "densenet161":
         model = models.densenet161(pretrained=pretrain)
         model.classifier = nn.Linear(2208, 100)
+        
+    elif model_name == "densenet169":
+        model = models.densenet169(pretrained=pretrain)
+        model.classifier = nn.Linear(1664, 100)
+
+    elif model_name == "models.densenet201":
+        model = models.models.densenet201(pretrained=pretrain)
+        model.classifier = nn.Linear(1920, 100)
         
     elif model_name == "inception_v3":
         model = models.inception_v3(pretrained=pretrain)
