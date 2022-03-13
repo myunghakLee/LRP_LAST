@@ -48,9 +48,21 @@ def get_model(model_name, pretrain=True):
         model = models.squeezenet1_0(pretrained=pretrain)
         model.classifier[1] = nn.Conv2d(512, 100, kernel_size=(1,1))
 
+    elif model_name == "vgg11":
+        model = models.vgg16(pretrained=pretrain)
+        model.classifier[6]= nn.Linear(4096, 100)
+
+    elif model_name == "vgg13":
+        model = models.vgg16(pretrained=pretrain)
+        model.classifier[6]= nn.Linear(4096, 100)
+    
     elif model_name == "vgg16":
         model = models.vgg16(pretrained=pretrain)
         model.classifier[6] = nn.Linear(4096, 100)
+    
+    elif model_name == "vgg19":
+        model = models.vgg16(pretrained=pretrain)
+        model.classifier[6]= nn.Linear(4096, 100)
 
     elif model_name == "densenet161":
         model = models.densenet161(pretrained=pretrain)
